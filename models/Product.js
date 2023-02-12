@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
     // enum: ['ikea', 'liddy', 'caressa', 'marcos'],
     enum: {
       values: ['ikea', 'liddy', 'caressa', 'marcos'],
-      // {VALUE} is the user's entered value
+      // create error msg; {VALUE} is the user's entered value
       message: '{VALUE} is not supported',
     },
   },
