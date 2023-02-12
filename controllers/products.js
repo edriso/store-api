@@ -1,5 +1,6 @@
 const getProductsStatic = (req, res) => {
-  res.status(200).json({ msg: 'products static route' });
+  throw new Error('Whaa!');
+  // res.status(200).json({ msg: 'products static route' });
 };
 
 const getAllProducts = (req, res) => {
