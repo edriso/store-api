@@ -1,7 +1,10 @@
-const dotenv = require("dotenv");
-const express = require("express");
-const notFoundMiddleware = require("./middleware/not-found");
-const errorHandlerMiddleware = require("./middleware/error-handler");
+const dotenv = require('dotenv');
+const express = require('express');
+
+const productsRouter = require('./routes/products');
+const notFoundMiddleware = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
+const connectDB = require('./db/connect');
 
 dotenv.config();
 const app = express();
@@ -10,11 +13,12 @@ const app = express();
 // app.use(express.json())
 
 // routes
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.send("<h2>Store API</h2><a href='/api/v1/products'>products route</a>");
 });
 
-// products route
+app.use('/api/v1/products', productsRouter);
+
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
@@ -23,7 +27,7 @@ const port = process.env.PORT || 3000;
 
 const startServer = async () => {
   try {
-    // connect to db
+    await connectDB(process.env.MONGO_URI);
 
     app.listen(port, () => console.log(`Server is running on port ${port}...`));
   } catch (error) {
