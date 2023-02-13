@@ -1,14 +1,5 @@
 const Product = require('../models/product');
 
-const getProductsStatic = async (req, res) => {
-  const products = await Product.find({ price: { $gt: 25 } }).select(
-    'name price'
-  );
-
-  // throw new Error('Whaa!');
-  res.status(200).json({ results: products.length, products });
-};
-
 const getAllProducts = async (req, res) => {
   const queryObject = {};
 
@@ -79,6 +70,5 @@ const getAllProducts = async (req, res) => {
 };
 
 module.exports = {
-  getProductsStatic,
   getAllProducts,
 };
