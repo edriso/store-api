@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "2c86accc-9923-405e-b543-478fa78d4bfa",
+		"name": "Store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15155550"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/products?featured=false&name=o&sort=name,price&fields=name,price,company,rating&page=2&limit=3&numericFilters=price<100,rating>=4.5",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "featured",
+							"value": "false"
+						},
+						{
+							"key": "company",
+							"value": "Ikea",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "o"
+						},
+						{
+							"key": "sort",
+							"value": "name,price"
+						},
+						{
+							"key": "fields",
+							"value": "name,price,company,rating"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "numericFilters",
+							"value": "price<100,rating>=4.5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
